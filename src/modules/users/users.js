@@ -4,7 +4,8 @@ import { sign } from "../../utils/jwt.js";
 export default {
   SIGN_IN: async (req, res) => {
     const { user_full_name, user_name, user_password } = req.body;
-    const addUser = await signin(user_full_name, user_name, user_password);
+    const addUser = await signin(user_full_name, user_name, user_password)
+    .catch(e => console.log(e))
     const token = sign(addUser.user_id);
     if (addUser) {
       res.status(200).json({
