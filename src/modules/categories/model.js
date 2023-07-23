@@ -1,4 +1,4 @@
-import { fetchData } from "../../utils/pg";
+import { fetchData } from "../../utils/pg.js";
 
 const GET_CATEGORIES = `
     select 
