@@ -29,7 +29,7 @@ const BY_ID = `
     on
         p.post_category = c.category_id
     where
-        p.post_id - $1;
+        p.post_id = $1;
 `
 
 const ADD_POST = `
