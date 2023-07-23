@@ -1,4 +1,4 @@
-import { addPost, deletePost, getPosts, updatePost } from "./model.js";
+import { addPost, byId, deletePost, getPosts, updatePost } from "./model.js";
 import path from "path";
 
 export default {
@@ -11,6 +11,16 @@ export default {
   GET_IMG: async (req, res) => {
     let { fileName } = req.params;
     res.sendFile(path.resolve("uploads", fileName));
+  },
+  BY_ID: async (req, res) => {
+    const { post_id } = req.params
+    const post = await byId(post_id)
+    post.post_img = `${process.env.HOST}/view/${e.post_img}`
+
+    res.status(200).json({
+      status: 200,
+      data: post
+    })
   },
   ADD_POST: async (req, res) => {
     const { post_title, post_body, post_category } = req.body;
@@ -27,7 +37,7 @@ export default {
       message: "New post added!",
     });
   },
-  DELETE_POST: async (req, res) => {
+    DELETE_POST: async (req, res) => {
     const { post_id } = req.params;
     const { user_id } = req.headers;
     await deletePost(post_id, user_id);

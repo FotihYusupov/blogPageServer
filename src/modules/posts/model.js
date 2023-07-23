@@ -15,6 +15,23 @@ const GET_POSTS = `
         p.post_category = c.category_id
 `;
 
+const BY_ID = `
+    select 
+        * 
+    from 
+        posts as p
+    join
+        users as u
+    on
+        p.user_id = u.user_id
+    join
+        categories as c
+    on
+        p.post_category = c.category_id
+    where
+        p.post_id - $1;
+`
+
 const ADD_POST = `
     insert into posts(post_title, post_body, post_img, post_category, user_id)
         values($1, $2, $3, $4, $5);
@@ -38,6 +55,8 @@ const UPDATE_POST = `
 `;
 
 export const getPosts = () => fetchData(GET_POSTS);
+
+export const byId = id => fetch(BY_ID, id);
 
 export const addPost = (
   post_title,

@@ -22,8 +22,8 @@ export default {
   LOG_IN: async (req, res) => {
     const { user_name, user_password } = req.body;
     const foundUser = await login(user_name, user_password);
-    const token = sign(foundUser.user_id);
     if (foundUser) {
+      const token = sign(foundUser.user_id);
       res.status(200).json({
         status: 200,
         token,
