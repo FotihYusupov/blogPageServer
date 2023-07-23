@@ -15,7 +15,7 @@ export default {
   BY_ID: async (req, res) => {
     const { post_id } = req.params
     const post = await byId(post_id)
-    post.post_img = `${process.env.HOST}/view/${e.post_img}`
+    post.post_img = `${process.env.HOST}/view/${post.post_img}`
 
     res.status(200).json({
       status: 200,
