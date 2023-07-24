@@ -1,10 +1,12 @@
 import { addPost, byId, deletePost, getPosts, updatePost } from "./model.js";
 import path from "path";
 
+const HOST = process.env.HOST || 'http://localhost:8000'
+
 export default {
   GET_POSTS: async (_, res) => {
     const posts = await getPosts();
-    posts.map((e) => (e.post_img = `${process.env.HOST}/view/${e.post_img}`));
+    posts.map((e) => (e.post_img = `${HOST}/view/${e.post_img}`));
 
     res.send(posts);
   },
