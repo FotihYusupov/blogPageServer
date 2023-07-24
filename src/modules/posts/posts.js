@@ -1,7 +1,7 @@
 import { addPost, byId, deletePost, getPosts, updatePost } from "./model.js";
 import path from "path";
 
-const HOST = process.env.HOST || 'http://localhost:8000'
+const HOST = process.env.HOST
 
 export default {
   GET_POSTS: async (_, res) => {
