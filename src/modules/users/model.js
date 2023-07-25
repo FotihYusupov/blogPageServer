@@ -1,4 +1,4 @@
-import { fetch } from "../../utils/pg.js";
+import { fetch, fetchData } from "../../utils/pg.js";
 
 const SIGN_IN = `
   insert into users(user_full_name, user_name, user_password)
@@ -25,7 +25,7 @@ select
   ) as posts
   from
       users
-  join
+  full join
     posts as p
   on
       users.user_id = p.user_id
