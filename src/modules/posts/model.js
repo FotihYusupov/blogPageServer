@@ -87,4 +87,4 @@ export const updatePost = (
   user_id
 ) => fetch(UPDATE_POST, post_title, post_body, post_img, post_category, post_id, user_id);
 
-export const searchPost = (title) => fetch(SEARCH_POST, title)
+export const searchPost = (title) => fetchData(SEARCH_POST, title)

@@ -34,7 +34,6 @@ export default {
   SEARCH_POST: async (req, res) => {
     const { title } = req.params;
     const posts = await searchPost(`%${title}%`);
-    console.log(posts);
     if (posts) {
       res.status(200).json({
         status: 200,
