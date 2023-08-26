@@ -1,4 +1,4 @@
-import { addPost, byId, deletePost, getPosts, updatePost } from "./model.js";
+import { addPost, byId, deletePost, getPosts, searchPost, updatePost } from "./model.js";
 import path from "path";
 
 const HOST = process.env.HOST
@@ -23,6 +23,22 @@ export default {
       status: 200,
       data: post
     })
+  },
+  SEARCH_POST: async (req, res) => {
+    const { title } = req.params
+    const posts = await searchPost(`%${title}%`)
+    console.log(posts);
+    if(posts.length > 0) {
+      res.status(200).json({
+        status: 200,
+        data: posts
+      })
+    } else {
+      res.status(400).json({
+        status: 400,
+        message: 'Post not found'
+      })
+    }
   },
   ADD_POST: async (req, res) => {
     const { post_title, post_body, post_category } = req.body;

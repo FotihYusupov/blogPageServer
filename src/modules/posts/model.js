@@ -15,6 +15,15 @@ const GET_POSTS = `
         p.post_category = c.category_id
 `;
 
+const SEARCH_POST = `
+    select
+        *
+    from
+        posts
+    where
+        post_title ILIKE $1
+`
+
 const BY_ID = `
     select 
         * 
@@ -77,3 +86,5 @@ export const updatePost = (
   post_id,
   user_id
 ) => fetch(UPDATE_POST, post_title, post_body, post_img, post_category, post_id, user_id);
+
+export const searchPost = (title) => fetch(SEARCH_POST, title)
