@@ -88,6 +88,9 @@ export default {
       post_id,
       user_id
     );
-    res.send("ok");
+    res.status(200).json({
+      status: 200,
+      message: 'Post updated'
+    })
   },
 };

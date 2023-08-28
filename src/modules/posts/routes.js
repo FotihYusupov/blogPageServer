@@ -11,4 +11,4 @@ export default postsRoutes
     .get('/search/:title', posts.SEARCH_POST)
     .post('/add-post', authMiddleware, posts.ADD_POST)
     .put('/update-post/:post_id', authMiddleware, posts.UPDATE_POST)
-    .delete('/post/:post_id', authMiddleware, posts.DELETE_POST)
+    .delete('/delete/:post_id', authMiddleware, posts.DELETE_POST)
