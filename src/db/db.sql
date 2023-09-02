@@ -25,6 +25,12 @@ create table comments (
     user_id integer references users(user_id)
 );
 
+create table admins (
+    admin_id serial not null,
+    admin_name varchar,
+    admin_password varchar(60) not null
+);
+
 insert into posts(post_title, post_body, post_img, post_category, user_id)
     values('Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quaerat consequuntur eos tempore dolor veniam molestias sit cum similique odit corrupti illo maxime rem facere nobis, modi dolorem quas? Culpa animi, odit saepe tempore perferendis laborum esse neque sequi. Veritatis facilis sed adipisci explicabo excepturi consequuntur ducimus, labore perspiciatis quibusdam. Explicabo ipsa ut, voluptatibus dolores molestiae quos similique id doloribus saepe sit delectus deserunt?',

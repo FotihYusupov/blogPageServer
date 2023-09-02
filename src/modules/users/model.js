@@ -1,4 +1,4 @@
-import { fetch, fetchData } from "../../utils/pg.js";
+import { fetch } from "../../utils/pg.js";
 
 const SIGN_IN = `
   insert into users(user_full_name, user_name, user_password)
@@ -42,23 +42,3 @@ export const login = (user_name, user_password) =>
   fetch(LOG_IN, user_name, user_password) 
 
 export const getProfile = user_id => fetch(GET_PROFILE, user_id)
-
-
-/* 
-select
-  users.user_name,
-  users.user_full_name,
-  json_agg(
-    p
-  ) as posts
-  from
-      users
-  join
-    posts as p
-  on
-      users.user_id = p.user_id
-  group by
-      users.user_id
-  having
-    users.user_id = $1;
-*/
