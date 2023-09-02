@@ -1,4 +1,4 @@
-import { login } from "./model.js";
+import { deletePost, login } from "./model.js";
 import { sign } from "../../utils/jwt.js";
 
 export default {
@@ -17,5 +17,13 @@ export default {
             message: "Bad request",
             });
         }
-        },
+    },
+    DELETE_POST: async (req, res) => {
+        const { post_id } = req.params
+        await deletePost(post_id)
+        res.status(200).json({
+            status: 200,
+            message: "Post deleted",
+        });
+    }
 }

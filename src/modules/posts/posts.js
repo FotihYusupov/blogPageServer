@@ -64,7 +64,6 @@ export default {
   DELETE_POST: async (req, res) => {
     const { post_id } = req.params;
     const { user_id } = req.headers;
-    console.log(post_id, user_id);
     await deletePost(post_id, user_id);
     res.status(200).json({
       status: 200,
