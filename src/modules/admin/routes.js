@@ -5,4 +5,4 @@ const adminsRoute = Router()
 
 export default adminsRoute
     .post('/admin/log-in', admin.LOG_IN)
-    .delete('/admin/delete/', admin.DELETE_POST)
+    .delete('/admin/delete/:post_id', admin.DELETE_POST)
